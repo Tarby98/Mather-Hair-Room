@@ -21,11 +21,13 @@ slideIns.forEach(el => {
   }, 200);
 });
 
-  // FIX FOR IOS VIDEO AUTOPLAY
+// FIX FOR IOS VIDEO AUTOPLAY
 const video = document.querySelector('#home video');
 if (video) {
+  video.muted = true;
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
   video.play().catch(() => {
-    // iOS blocked it, try again on first user interaction
     document.addEventListener('touchstart', () => {
       video.play();
     }, { once: true });
