@@ -21,6 +21,17 @@ slideIns.forEach(el => {
   }, 200);
 });
 
+  // FIX FOR IOS VIDEO AUTOPLAY
+const video = document.querySelector('#home video');
+if (video) {
+  video.play().catch(() => {
+    // iOS blocked it, try again on first user interaction
+    document.addEventListener('touchstart', () => {
+      video.play();
+    }, { once: true });
+  });
+}
+
   // ADDS A LIGHTBOX WHEN AN IMAGE IS CLICKED
   const images = document.querySelectorAll('.gallery img');
   const lightbox = document.getElementById('lightbox');
