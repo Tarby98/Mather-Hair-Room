@@ -27,9 +27,14 @@ if (video) {
   video.muted = true;
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
-  video.play().catch(() => {
-    document.addEventListener('touchstart', () => {
-      video.play();
+  
+  const tryPlay = () => video.play().catch(() => {});
+
+  tryPlay();
+
+  ['touchstart', 'touchmove', 'scroll', 'click'].forEach(event => {
+    document.addEventListener(event, () => {
+      if (video.paused) video.play().catch(() => {});
     }, { once: true });
   });
 }
