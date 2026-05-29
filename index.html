@@ -213,22 +213,15 @@
     </div>
 
     <div class="contact-form">
-     <form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact">
-
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Message"></textarea>
-
-  <button type="submit">Send Message</button>
-</form>
-
-<p id="success-message" style="display:none;">
-  Thank you! Your message has been received.
-</p>
-    </div>
-
+       <form name="contact" method="POST" data-netlify="true" action="thankyou.html">
+       <input type="hidden" name="form-name" value="contact">
+       <input type="text" name="name" required placeholder="Name">
+       <input type="email" name="email" required placeholder="Email">
+       <textarea name="message" required placeholder="Send us a message"></textarea>
+       <button type="submit">Send Message</button>
+     </form>
   </div>
+    
 </section>
 
 <!-------------------------------------- LOCATION & OPENING TIMES ------------------------------------->
