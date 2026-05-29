@@ -1,5 +1,27 @@
 // JAVASCRIPT FOR MATHER HAIR ROOM 
 
+// FIX FOR IOS VIDEO AUTOPLAY
+
+const video = document.querySelector('#home video');
+if (video) {
+  video.muted = true;
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  const tryPlay = () => video.play().catch(() => {});
+
+  tryPlay();
+  video.addEventListener('loadedmetadata', tryPlay);
+  video.addEventListener('loadeddata', tryPlay);
+  video.addEventListener('canplay', tryPlay);
+
+  ['touchstart', 'touchmove', 'click'].forEach(event => {
+    document.addEventListener(event, () => {
+      if (video.paused) video.play().catch(() => {});
+    }, { once: true, passive: true });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // THIS MAKES THE YEAR IN THE FOOTER CHANGE TO THE CURRENT YEAR EACH TIME. SAVES CHANGING IT MANUALLY EVERY YEAR.
@@ -20,26 +42,6 @@ slideIns.forEach(el => {
     el.classList.add('visible');
   }, 200);
 });
-
-// FIX FOR IOS VIDEO AUTOPLAY
-const video = document.querySelector('#home video');
-if (video) {
-  video.muted = true;
-  video.setAttribute('playsinline', '');
-  video.setAttribute('webkit-playsinline', '');
-
-  const tryPlay = () => video.play().catch(() => {});
-
-  tryPlay();
-
-  video.addEventListener('loadeddata', tryPlay);
-
-  ['touchstart', 'touchmove', 'click'].forEach(event => {
-    document.addEventListener(event, () => {
-      if (video.paused) video.play().catch(() => {});
-    }, { once: true, passive: true });
-  });
-}
 
   // ADDS A LIGHTBOX WHEN AN IMAGE IS CLICKED
   const images = document.querySelectorAll('.gallery img');
