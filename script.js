@@ -152,3 +152,25 @@ const observer = new IntersectionObserver(entries => {
 
 cards.forEach(card => observer.observe(card));
 
+// MAKE THE FORM GIVE A MESSAGE ONCE RECEIVED
+
+const form = document.querySelector('form[name="contact"]');
+const successMessage = document.getElementById('success-message');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  await fetch('/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams(formData).toString()
+  });
+
+  form.reset();
+  successMessage.style.display = 'block';
+});
+
