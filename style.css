@@ -1195,3 +1195,37 @@ nav li:last-child a:hover {
 #home video::-webkit-media-controls-start-playback-button {
   display: none !important;
 }
+
+/* THANK YOU SECTION */
+
+.thankyou-section {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.thankyou-card {
+  background: #ffffff;
+  max-width: 650px;
+  width: 100%;
+  padding: 50px 40px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border-top: 4px solid #c9a227;
+}
+
+.thankyou-card h1 {
+  margin-bottom: 20px;
+}
+
+.thankyou-card p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.thankyou-card .book-btn {
+  margin-top: 20px;
+}
