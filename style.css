@@ -1186,16 +1186,6 @@ nav li:last-child a:hover {
   transform: translateY(0);
 }
 
-/* HOME VIDEO FIX ON IOS (WOULDN'T AUTOPLAY) */
-
-#home video::-webkit-media-controls {
-  display: none !important;
-}
-
-#home video::-webkit-media-controls-start-playback-button {
-  display: none !important;
-}
-
 /* THANK YOU SECTION */
 
 .thankyou-section {
